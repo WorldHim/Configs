@@ -1,0 +1,48 @@
+<!--
+<p>
+<a id="rainbow" href='' class="rainbow" target="_blank">🌈正在加载中...</a>
+</p>
+-->
+<p id="hitokoto" align="center">
+    <a href="" id="hitokoto_text" class="hitokoto" target="_blank">🌈正在加载中...</a>
+</p>
+
+<style>
+/*
+    .rainbow {
+        text-decoration: none;
+        color: dimgray;
+    }
+*/
+    .hitokoto {
+        font-size:32px;
+        text-decoration: none;
+        color: dimgray;
+    }
+</style>
+
+<!--
+<script>
+    fetch('https://api.eatrice.top')
+        .then(response => response.json())
+        .then(data => {
+            var rainbow = document.getElementById('rainbow');
+            rainbow.innerHTML = "「" + data.Source + "」" + "：" + data.Content;
+            rainbow.href = "https://odman.vercel.app"
+        })
+        .catch(console.error)
+</script>
+-->
+
+
+
+<script>
+    fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+            const hitokoto = document.getElementById('hitokoto_text')
+            hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid ;
+            hitokoto.innerText = "「" + data.hitokoto + "」\n\n——" + data.from ;
+        })
+        .catch(console.error)
+</script>
